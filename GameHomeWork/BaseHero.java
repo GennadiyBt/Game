@@ -1,4 +1,4 @@
-public abstract class BaseHero {
+public abstract class BaseHero implements Action{
     private String name;
     private int attack;
     private int protection;
@@ -10,6 +10,7 @@ public abstract class BaseHero {
     private int delivery;
     private int magic;
     private boolean status;
+    private int[] position;
     // private boolean team; // Опознаватель свой - чужой
 
     protected BaseHero() {}
@@ -47,9 +48,41 @@ public abstract class BaseHero {
     public boolean getStatus(){return status;}
     public void setStatus(boolean status){this.status = status;}
 
+    public int[] getPosition(){return position;}
+    public void setPosition(int[] position){this.position = position;}
+
     public String info() {
         return String.format("Класс: %s, имя: %s, атака: %d, защита: %d, выстрелы: %d, урон минимальный: %d, урон максимальный: %d, здоровье: %d, скорость: %d, доставка: %d, магия: %d", this.getClass(), 
         name, attack, protection, shots, damage_min, damage_max, health, speed, delivery, magic);
+    }
+    @Override
+    public int blow() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public int getHit(int damage) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public boolean status() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public int[] changePositions(int[] position) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void returnCondition() {
+        // TODO Auto-generated method stub
+        
     }
 
 }
