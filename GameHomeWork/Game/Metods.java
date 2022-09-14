@@ -3,14 +3,14 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- * game_main
- */
-public class game_main {
+import Hero.*;
 
-    public static void main(String[] args) {
+public abstract class Metods {
+    public Metods() {
+    }
+   
+    public static List<BaseHero> init() {
         
-        int step = 1;
         List<BaseHero> warriors = new ArrayList<BaseHero>();
 
         Random rnd = new Random();
@@ -62,6 +62,11 @@ public class game_main {
                     warriors.add(new Crossbowman(false, 9,i));
             }
         }
+        return warriors;
+    }
+
+    public static void battle(List<BaseHero> warriors){
+        int step = 1;
         if (step == 1) {
             System.out.println("First step");
         } else {
@@ -70,7 +75,7 @@ public class game_main {
         System.out.println("--------------------------------------------");
         System.out.println("Team 1");
         for (int i = 0; i < warriors.size(); i++) {
-            if (warriors.get(i).team) {
+            if (warriors.get(i).getTeam()) {
                 warriors.get(i).info();
             }
         }
@@ -78,24 +83,25 @@ public class game_main {
         System.out.println("--------------------------------------------");
         System.out.println("Team 2");
         for (int i = 0; i < warriors.size(); i++) {
-            if (!warriors.get(i).team) {
+            if (!warriors.get(i).getTeam()) {
                 warriors.get(i).info();
             }
         }
         Scanner in = new Scanner(System.in);
-        while (true) {
+        boolean gameOver = true;
+        while (gameOver) {
             step++;
             String txt = in.nextLine();
-            if (txt.equals("")) {  // Надоело каждый ход next писать. Теперь просто нажатие Enter.
+            if (txt.equals("")) { 
                 for (BaseHero hero : warriors) {
-                    if (hero.status != "Die") {hero.step(warriors);}    
-                }
-                //warriors.forEach(hero -> hero.step(warriors));
+                    if (hero.getStatus() != "Die") {hero.step(warriors);}
+                }  
+                
                 System.out.println("");
                 System.out.println("Step " + step);
                 System.out.println("Team 1");
                 for (int i = 0; i < warriors.size(); i++) {
-                    if (warriors.get(i).team) {
+                    if (warriors.get(i).getTeam()) {
                         warriors.get(i).info();
                     }
                 }
@@ -103,7 +109,7 @@ public class game_main {
                 System.out.println("--------------------------------------------");
                 System.out.println("Team 2");
                 for (int i = 0; i < warriors.size(); i++) {
-                    if (!warriors.get(i).team) {
+                    if (!warriors.get(i).getTeam()) {
                         warriors.get(i).info();
                     }
                 }
@@ -111,8 +117,35 @@ public class game_main {
             if (txt.equals("quit")) {
                 break;
             }
+            gameOver = allDie(warriors);
         }
+    }
+
+    public static boolean allDie(List<BaseHero> warriors) {
+        boolean victory1 = true;
+        boolean victory2 = true;
+        boolean result = true;
+        for (BaseHero hero : warriors) {
+            if (hero.getTeam() && hero.getStatus() == "Aktive") {
+                victory1 = false;
+            }
+        }
+
+        for (BaseHero hero : warriors) {
+            if (!hero.getTeam() && hero.getStatus() == "Aktive") {
+                victory2 = false;
+            }    
+        }
+
+        if (victory1 || victory2 ) {
+            result = false;
+            System.out.println("GAME OVER");
+        }
+        return result;
         
-         
+    }
+
+    public static void button() {
+        battle(init());   
     }
 }

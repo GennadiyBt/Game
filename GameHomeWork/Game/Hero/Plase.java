@@ -1,3 +1,4 @@
+package Hero;
 public class Plase {
     public int x;
     public int y;

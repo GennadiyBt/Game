@@ -1,4 +1,8 @@
+package Interface;
+
 import java.util.List;
+
+import Hero.BaseHero;
 
 public interface Action {
     
