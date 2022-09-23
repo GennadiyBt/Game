@@ -18,5 +18,25 @@ public abstract class Aero extends Vehicle{
         this.flight_range = flight_range;
         this.cruising_speed = cruising_speed;
     }
+
+    @Override
+    public String getSpeed() {
+        // TODO Auto-generated method stub
+        return "Максимальная скорость " +base.getMax_speed()+ " км/ч, крейсерская скорость " + cruising_speed + " км/ч";
+    }
+
+    @Override
+    public String getEnvironment() {
+        // TODO Auto-generated method stub
+        return "Воздушный транспорт";
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        String info = "Марка: "+ brand +" Модель: "+ model + base.infoBase()+ engine.infoEngine() +
+         " Максимальная высота полета: "+max_flight_altitude+ " Дальность полета: "+flight_range+ " Крейсерская скорость: "+cruising_speed;
+        return info;
+    }
     
 }

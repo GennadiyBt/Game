@@ -13,4 +13,19 @@ public abstract class Land extends Vehicle {
         super(engine, base);
         this.numWheels = numWheels;
     }
+    
+    @Override
+    public String getEnvironment() {
+        // TODO Auto-generated method stub
+        return "Наземный транспорт";
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        String info = "Марка: "+ brand +" Модель: "+ model + base.infoBase()+ engine.infoEngine() +
+         " Число колес: " + numWheels;
+        return info;
+    }
+
 }

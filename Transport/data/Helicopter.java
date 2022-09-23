@@ -15,4 +15,12 @@ public class Helicopter extends Aero {
         this.screw_diameter = screw_diameter;               
         }
     
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        String info = "Марка: "+ brand +" Модель: "+ model + " "+ base.infoBase()+ " "+ engine.infoEngine() +
+         " Максимальная высота полета: "+max_flight_altitude+ " Дальность полета: "+flight_range+ " Крейсерская скорость: "+cruising_speed+
+         "Диаметр винта: " + screw_diameter;
+        return info;
+    }
 }

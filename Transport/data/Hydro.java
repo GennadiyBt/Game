@@ -18,5 +18,27 @@ public abstract class Hydro extends Vehicle{
         this.body_material = body_material;
         this.dryve_type = dryve_type;
     }
-    
+
+    @Override
+    public String getSpeed() {
+        // TODO Auto-generated method stub
+        int speed = (int)(base.getMax_speed()/1.865);
+        String result = "Максимальная скорость " + speed + " узлов.";
+        return result;
+    }
+
+    @Override
+    public String getEnvironment() {
+        // TODO Auto-generated method stub
+        return "Водый транспорт";
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        String info = "Марка: "+ brand +" Модель: "+ model + " "+ base.infoBase()+ " "+ engine.infoEngine() +
+        " Тип корпуса: "+ body_type + " Материал корпуса: "+ body_material + " Тип движителя: "+ dryve_type;
+        return info;
+    }
+
 }

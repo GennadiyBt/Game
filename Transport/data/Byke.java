@@ -13,4 +13,12 @@ public class Byke extends Land{
         this.frame = frame;
     }
 
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        String info = "Марка: "+ brand +" Модель: "+ model + " "+ base.infoBase()+ " "+ engine.infoEngine() +
+         " Число колес: "+ numWheels + " Тип рамы: "+ frame;
+        return info;
+    }
+
 }

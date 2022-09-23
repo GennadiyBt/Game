@@ -11,4 +11,12 @@ public class Quadro extends Car{
         super(engine, base, model, brand, numWheels, drive, numDoors);
         this.numDoors = 0;
     }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        String info = "Марка: "+ brand +" Модель: "+ model + " "+ base.infoBase()+ " "+ engine.infoEngine() +
+         " Число колес: "+ numWheels + " Привод: "+ drive;
+        return info;
+    }
 }

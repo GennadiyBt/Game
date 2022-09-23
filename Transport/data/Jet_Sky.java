@@ -12,6 +12,14 @@ public class Jet_Sky extends Hydro{
                     String body_material, String dryve_type, String siting_type){
         super(engine, base, brand, model, body_type, body_material, dryve_type);
         this.siting_type = siting_type;
-                    }
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        String info = "Марка: "+ brand +" Модель: "+ model + " "+ base.infoBase()+ " "+ engine.infoEngine() +
+         " Тип корпуса: "+ body_type + " Материал корпуса: "+ body_material + " Тип движителя: "+ dryve_type + "Тип размещения: " + siting_type;
+        return info;
+    }
     
 }

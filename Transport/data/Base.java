@@ -1,5 +1,6 @@
 package data;
 
+
 public class Base {
     private final int max_speed;
     public int getMax_speed() {
@@ -46,4 +47,10 @@ public class Base {
         this.height = height;
         this.volume_tank = volume_tank;
     }
+
+    public String infoBase() {
+        String chas = "Максимальная скорость, км/ч: "+max_speed+",  количество мест:  "+seats+", масса:  "+ full_mass;
+        return chas;
+    }
+
 }

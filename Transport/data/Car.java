@@ -16,4 +16,12 @@ public class Car extends Land {
         this.numDoors = numDoors;
     }
 
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        String info = "Марка: "+ brand +" Модель: "+ model + " "+ base.infoBase()+ " "+ engine.infoEngine() +
+         " Число колес: "+ numWheels + " Привод: "+ drive + " Количество дверей: "+numDoors;
+        return info;
+    }
+
 }

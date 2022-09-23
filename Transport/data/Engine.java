@@ -23,6 +23,11 @@ public class Engine {
         this.power = power;
     }
 
+    public String infoEngine() {
+        String eng = "Тип двигателя: " + type + ", объем: " + volume + ",  мощность: " + power;
+        return eng;
+    }
+
 
 
 }
